@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}NEXORA{% endblock %}</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    {% block head %}{% endblock %}
+</head>
+
+<body class="bg-navy text-cream">
+
+    <!-- =========================
+         NEXORA NAVBAR
+    ========================== -->
+    <header class="nexora-navbar">
+        <nav class="nexora-nav-shell">
+
+            <!-- Logo -->
+            <a href="{{ url_for('main.index') }}" class="nexora-brand" aria-label="NEXORA home">
+                <span class="nexora-brand-mark" aria-hidden="true">
+                    <span class="nexora-brand-orbit"></span>
+                    <span class="nexora-brand-dot nexora-brand-dot-purple"></span>
+                    <span class="nexora-brand-dot nexora-brand-dot-mint"></span>
+                </span>
+                <span class="nexora-brand-name">NEXORA</span>
+            </a>
+
+            <!-- Main navigation -->
+            <div class="nexora-main-links" aria-label="Main navigation">
+                <a href="#" class="nexora-nav-link">Find Jobs</a>
+                <a href="#" class="nexora-nav-link">Companies</a>
+                <a href="#" class="nexora-nav-link">Pricing</a>
+            </div>
+
+            <!-- Authentication / Employer navigation -->
+            <div class="nexora-actions">
+
+                <!-- User Login -->
+                <a href="{{ url_for('auth.login') }}" class="nexora-login-link">
+                    Login
+                </a>
+
+                <!-- User Register -->
+                <a href="{{ url_for('auth.signup') }}" class="nexora-register-btn">
+                    Register
+                </a>
+
+                <!-- Employers dropdown -->
+                <div class="nexora-employer-menu" id="employerMenu">
+
+                    <button
+                        type="button"
+                        class="nexora-employer-btn"
+                        id="employerMenuButton"
+                        aria-expanded="false"
+                        aria-controls="employerDropdown">
+                        <span>For Employers</span>
+                        <i data-lucide="chevron-down" class="nexora-chevron" aria-hidden="true"></i>
+                    </button>
+
+                    <div
+                        class="nexora-employer-dropdown"
+                        id="employerDropdown"
+                        role="menu"
+                        aria-hidden="true">
+
+                        <!-- Empty for now; content can be added later -->
+                        <a href="#" class="nexora-dropdown-item" role="menuitem">
+                            <span>Employer Plans</span>
+                        </a>
+
+                        <a href="{{ url_for('auth.emlogin') }}"
+                           class="nexora-dropdown-item"
+                           role="menuitem">
+                            <span>Employer Login</span>
+                        </a>
+
+                        <a href="{{ url_for('auth.emregister') }}"
+                           class="nexora-dropdown-item"
+                           role="menuitem">
+                            <span>Employer Register</span>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile actions -->
+            <div class="nexora-mobile-actions">
+                <a href="{{ url_for('auth.login') }}" class="nexora-login-link">Login</a>
+                <a href="{{ url_for('auth.signup') }}" class="nexora-register-btn">Register</a>
+
+                <div class="nexora-employer-menu" id="employerMenuMobile">
+                    <button
+                        type="button"
+                        class="nexora-employer-btn"
+                        id="employerMenuMobileButton"
+                        aria-expanded="false"
+                        aria-controls="employerDropdownMobile">
+                        <span>Employers</span>
+                        <i data-lucide="chevron-down" class="nexora-chevron" aria-hidden="true"></i>
+                    </button>
+
+                    <div
+                        class="nexora-employer-dropdown nexora-mobile-dropdown"
+                        id="employerDropdownMobile"
+                        role="menu"
+                        aria-hidden="true">
+
+                        <a href="#" class="nexora-dropdown-item" role="menuitem">Employer Plans</a>
+                        <a href="{{ url_for('auth.emlogin') }}" class="nexora-dropdown-item" role="menuitem">Employer Login</a>
+                        <a href="{{ url_for('auth.emregister') }}" class="nexora-dropdown-item" role="menuitem">Employer Register</a>
+
+                    </div>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+
+        const supabaseClient = window.supabase.createClient(
+            "{{ config['SUPABASE_URL'] }}",
+            "{{ config['SUPABASE_ANON_KEY'] }}"
+        );
+
+        document.addEventListener("DOMContentLoaded", function () {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+
+            function setupEmployerMenu(menuId, buttonId, dropdownId) {
+                const menu = document.getElementById(menuId);
+                const button = document.getElementById(buttonId);
+                const dropdown = document.getElementById(dropdownId);
+
+                if (!menu || !button || !dropdown) return;
+
+                function setOpen(open) {
+                    menu.classList.toggle("is-open", open);
+                    button.setAttribute("aria-expanded", String(open));
+                    dropdown.setAttribute("aria-hidden", String(!open));
+                }
+
+                button.addEventListener("click", function (event) {
+                    event.stopPropagation();
+
+                    const isOpen = menu.classList.contains("is-open");
+                    setOpen(!isOpen);
+                });
+
+                
+
+                dropdown.querySelectorAll("a").forEach(function (link) {
+                    link.addEventListener("click", function () {
+                        setOpen(false);
+                    });
+                });
+
+                document.addEventListener("click", function (event) {
+                    if (!menu.contains(event.target) &&
+                    !button.contains(event.target)) {
+                        setOpen(false);
+                    }
+                });
+
+                document.addEventListener("keydown", function (event) {
+                    if (event.key === "Escape") {
+                        setOpen(false);
+                    }
+                });
+            }
+
+            setupEmployerMenu(
+                "employerMenu",
+                "employerMenuButton",
+                "employerDropdown"
+            );
+
+            setupEmployerMenu(
+                "employerMenuMobile",
+                "employerMenuMobileButton",
+                "employerDropdownMobile"
+            );
+        });
+    </script>
+
+    {% block scripts %}{% endblock %}
+
+</body>
+</html>

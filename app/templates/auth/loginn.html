@@ -1,0 +1,428 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+    <div class="auth-page">
+
+
+        <!-- =================================
+             LEFT BRANDING SECTION
+        ================================== -->
+
+        <section class="brand-section">
+
+
+            <!-- Logo -->
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    💼
+                </div>
+
+                <div>
+
+                    <div class="logo-name">
+                        NEXORA
+                    </div>
+
+                    <div class="logo-tagline">
+                        Your Career Starts Here
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Main Content -->
+
+            <div class="brand-content">
+
+
+                <div class="small-label">
+                    YOUR NEXT OPPORTUNITY
+                </div>
+
+
+                <h1>
+
+                    Find Your
+                    <span>Dream Job</span>
+
+                </h1>
+
+
+                <p>
+
+                    Connect with top companies,
+                    explore exciting opportunities
+                    and take the next step in your career.
+
+                </p>
+
+
+                <!-- Benefits -->
+
+                <div class="benefits">
+
+
+                    <div class="benefit">
+
+                        <div class="benefit-icon">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Top Companies
+                            </strong>
+
+                            <span>
+                                Discover opportunities from leading companies
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="benefit">
+
+                        <div class="benefit-icon">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Verified Employers
+                            </strong>
+
+                            <span>
+                                Connect with trusted employers
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="benefit">
+
+                        <div class="benefit-icon">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                More Opportunities
+                            </strong>
+
+                            <span>
+                                Find roles that match your skills
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================
+             RIGHT LOGIN SECTION
+        ================================== -->
+
+        <section class="login-section">
+
+
+            <div class="login-card">
+
+
+                <!-- Mobile Logo -->
+
+                <div class="mobile-logo">
+
+                    💼 NEXORA
+
+                </div>
+
+
+                <!-- Heading -->
+
+                <div class="form-heading">
+
+                    <h2>
+                        Welcome Back 👋
+                    </h2>
+
+                    <p>
+                        Login to your NEXORA account
+                    </p>
+
+                </div>
+
+
+
+                <!-- LOGIN FORM -->
+
+                <form id="loginForm">
+
+
+                    <!-- Email -->
+
+                    <div class="input-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">
+                                ✉
+                            </span>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Enter your email address"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Password -->
+
+                    <div class="input-group">
+
+                        <div class="password-label">
+
+                            <label for="password">
+                                Password
+                            </label>
+
+                            <a href="#">
+                                Forgot Password?
+                            </a>
+
+                        </div>
+
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">
+                                🔒
+                            </span>
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Enter your password"
+                                required>
+
+                            <button
+                                type="button"
+                                class="show-password">
+
+                                👁
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Login Button -->
+
+                    <button
+                        type="submit"
+                        class="login-button">
+
+                        Login
+
+                    </button>
+
+
+                </form>
+
+
+
+                <!-- OR DIVIDER -->
+
+                <div class="divider">
+
+                    <span></span>
+
+                    <p>OR</p>
+
+                    <span></span>
+
+                </div>
+
+
+
+                <!-- GOOGLE -->
+
+
+
+
+                <button
+                    type="button"
+                    id="google-login"
+                    class="google-button">
+                    
+                    <span class="google-logo">G</span>
+                    <span>Continue with Google</span>
+
+                </button>
+
+
+
+                <!-- REGISTER -->
+
+                <div class="register-text">
+
+                    Don't have an account?
+
+                    <a href="{{ url_for('auth.signup') }}">
+                        Register
+                    </a>
+
+                </div>
+
+
+
+                <!-- EMPLOYER -->
+
+                <div class="employer-link">
+
+                    Are you an employer?
+
+                    <a href="{{url_for('auth.emlogin')}}">
+                        Employer Login
+                    </a>
+
+                </div>
+
+
+
+                <!-- BACK HOME -->
+
+                <a
+                    href="#"
+                    class="back-home">
+
+                    ← Back to Home
+
+                </a>
+
+
+            </div>
+
+
+        </section>
+
+
+    </div>
+
+    <script>
+
+        document.getElementById("google-login").addEventListener("click", async () => {
+
+            const { data, error } = await supabaseClient.auth.signInWithOAuth({
+                provider: "google",
+                options: {
+                    redirectTo: "http://127.0.0.1:5000/auth/callback"
+                }
+            });
+
+            if (error) {
+                console.error("Google login error:", error);
+                alert(error.message);
+            }
+
+        });
+
+
+        const loginForm = document.getElementById("loginForm")
+
+        loginForm.addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+
+            const loginButton = loginForm.querySelector(
+                'button[type="submit"]'
+            );
+
+            loginButton.disabled = true;
+            loginButton.textContent = "Logging in...";
+
+            try {
+                const { data, error } = 
+                    await supabaseClient.auth.signInWithPassword({
+                        email: email,
+                        password: password
+                    });
+
+                if (error) {
+                    console.error("Login error:", error);
+
+                    alert(error.message);
+
+                    loginButton.disabled = false;
+                    loginButton.textContent = "Login";
+
+                    return;
+                }
+
+                console.log("Login successful:", data);
+
+                window.location.href = "{{ url_for('auth.seekerdashboard') }}";
+                const role = data.user?.user_metadat?.role;
+
+                if (role === "employer") {
+                    await supabaseClient.auth.signOut();
+                    alert("This is an Employer account. Please use the employer login instead.");
+                    loginButton.disabled = false;
+                    loginButton.textContent = "Login";
+                    return;
+                }
+                console.log("Login successful:", data);
+
+                window.location.href = "{{ url_for('auth.seekerdashboard') }}";
+
+
+            } catch (error) {
+                console.error("Unexpected login error:", error);
+
+                alert("Something went wrong. please try again.");
+
+                loginButton.disabled = false;
+                loginButton.textContent = "Login";
+            }
+        });
+    
+    </script>
+
+
+{% endblock %}

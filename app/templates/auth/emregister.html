@@ -1,0 +1,622 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="employer-register-page">
+
+
+    <!-- ==============================
+         TOP NAVBAR
+    =============================== -->
+
+    <header class="auth-navbar">
+
+
+        <div class="nav-logo">
+
+            <div class="nav-logo-icon">
+                💼
+            </div>
+
+            <div>
+
+                <strong>
+                    NEXORA
+                </strong>
+
+                <span>
+                    Your Career Starts Here
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="#">
+                Jobs
+            </a>
+
+            <a href="#">
+                About
+            </a>
+
+            <a href="#">
+                Contact
+            </a>
+
+        </nav>
+
+
+        <div class="nav-buttons">
+
+            <a href="login.html"
+               class="nav-login">
+
+                Login
+
+            </a>
+
+            <a href="register.html"
+               class="nav-register">
+
+                Register
+
+            </a>
+
+            <a href="employer-login.html"
+               class="nav-employer">
+
+                For Employers ▾
+
+            </a>
+
+        </div>
+
+
+    </header>
+
+
+
+    <!-- ==============================
+         MAIN CONTENT
+    =============================== -->
+
+    <main class="employer-main">
+
+
+        <!-- STEPS -->
+
+        <aside class="steps-panel">
+
+
+            <div class="step active">
+
+                <div class="step-number">
+                    1
+                </div>
+
+                <span>
+                    Company Details
+                </span>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    2
+                </div>
+
+                <span>
+                    Contact Information
+                </span>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    3
+                </div>
+
+                <span>
+                    Business Information
+                </span>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    4
+                </div>
+
+                <span>
+                    Verify Email
+                </span>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    5
+                </div>
+
+                <span>
+                    Review & Register
+                </span>
+
+            </div>
+
+
+        </aside>
+
+
+
+        <!-- FORM -->
+
+        <section class="employer-form-area">
+
+
+            <div class="employer-form-card">
+
+
+                <div class="form-heading">
+
+                    <div class="form-badge">
+                        FOR EMPLOYERS
+                    </div>
+
+                    <h2>
+                        Create Employer Account
+                    </h2>
+
+                    <p>
+                        Join NEXORA and find the best talent for your company.
+                    </p>
+
+                </div>
+
+
+
+                <form id="employerRegisterForm">
+
+
+                    <!-- COMPANY NAME + WEBSITE -->
+
+                    <div class="register-row">
+
+
+                        <div class="input-group">
+
+                            <label>
+                                Company Name <span>*</span>
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <span class="input-icon">
+                                    🏢
+                                </span>
+
+                                <input
+                                    type="text"
+                                    id="companyName"
+                                    placeholder="Enter your company name"
+                                    required>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label>
+                                Company Website
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <span class="input-icon">
+                                    🌐
+                                </span>
+
+                                <input
+                                    type="url"
+                                    id="companyWebsite"
+                                    placeholder="https://www.yourcompany.com">
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- EMAIL -->
+
+                    <div class="input-group">
+
+                        <label>
+                            Company Email <span>*</span>
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">
+                                ✉
+                            </span>
+
+                            <input
+                                type="email"
+                                id="companyEmail"
+                                placeholder="Enter official company email"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="input-group">
+
+                        <label>
+                            Password <span>*</span>
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">
+                                🔒
+                            </span>
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Create a password"
+                                required>
+
+                            <button
+                                type="button"
+                                class="show-password">
+
+                                👁
+
+                            </button>
+
+                        </div>
+
+                        <small>
+                            At least 8 characters with letters, numbers and symbols.
+                        </small>
+
+                    </div>
+
+
+
+                    <!-- CONFIRM + LOGO -->
+
+                    <div class="register-row">
+
+
+                        <div class="input-group">
+
+                            <label>
+                                Confirm Password <span>*</span>
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <span class="input-icon">
+                                    🔒
+                                </span>
+
+                                <input
+                                    type="password"
+                                    id="confirmPassword"
+                                    placeholder="Confirm your password"
+                                    required>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label>
+                                Company Logo
+                                <small>(Optional)</small>
+                            </label>
+
+                            <label class="upload-box">
+
+                                <span class="upload-icon">
+                                    ☁
+                                </span>
+
+                                <strong>
+                                    Click to upload
+                                </strong>
+
+                                <small>
+                                    JPG, PNG (Max 2MB)
+                                </small>
+
+                                <input
+                                    type="file"
+                                    accept=".jpg,.jpeg,.png">
+
+                            </label>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- TERMS -->
+
+                    <label class="checkbox-row">
+
+                        <input
+                            type="checkbox"
+                            id="agreeTerms"
+                            required>
+
+                        <span>
+
+                            I agree to the
+
+                            <a href="#">
+                                Terms & Conditions
+                            </a>
+
+                            and
+
+                            <a href="#">
+                                Privacy Policy
+                            </a>
+
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- NEXT -->
+
+                    <button
+                        type="submit"
+                        class="login-button">
+
+                        Create Employer Account
+
+                    </button>
+
+
+                </form>
+
+
+
+                <!-- OR -->
+
+                <div class="divider">
+
+                    <span></span>
+
+                    <p>OR</p>
+
+                    <span></span>
+
+                </div>
+
+
+
+                <!-- GOOGLE -->
+
+                <button
+                    type="button"
+                    class="google-button">
+
+                    <span class="google-logo">
+                        G
+                    </span>
+
+                    <span>
+                        Continue with Google
+                    </span>
+
+                </button>
+
+
+
+                <div class="register-text">
+
+                    Already have an account?
+
+                    <a href="{{url_for('auth.emlogin')}}">
+                        Login here
+                    </a>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- RIGHT INFO -->
+
+        <aside class="employer-info">
+
+
+            <div class="info-illustration">
+                👨‍💼
+            </div>
+
+
+            <h2>
+                Hire the Right Talent
+            </h2>
+
+
+            <p>
+                Post jobs, manage applications and
+                find skilled professionals easily.
+            </p>
+
+
+            <div class="info-feature">
+
+                <div>👥</div>
+
+                <span>
+                    Post job openings<br>
+                    in minutes
+                </span>
+
+            </div>
+
+
+            <div class="info-feature">
+
+                <div>📄</div>
+
+                <span>
+                    Review and manage<br>
+                    applications
+                </span>
+
+            </div>
+
+
+            <div class="info-feature">
+
+                <div>🔍</div>
+
+                <span>
+                    Access verified talent
+                </span>
+
+            </div>
+
+
+            <div class="info-feature">
+
+                <div>📊</div>
+
+                <span>
+                    Grow your team faster
+                </span>
+
+            </div>
+
+
+        </aside>
+
+
+    </main>
+
+
+</div>
+
+<script>
+
+    const employerRegisterForm = document.getElementById("employerRegisterForm");
+
+    employerRegisterForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const companyName = document.getElementById("companyName").value.trim();
+        const companyWebsite = document.getElementById("companyWebsite").value.trim();
+        const email = document.getElementById("companyEmail").value.trim();
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+
+        const submitButton = employerRegisterForm.querySelector(
+            'button[type="submit"]'
+        );
+
+        if (password !== confirmPassword) {
+            alert("Passwords do not match.");
+            return;
+        }
+
+        if (password.length < 8) {
+            alert("Password must be at least 8 characters.");
+            return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Creating Account...";
+
+        try {
+            // The "role" here is what the login pages check to keep
+            // employer and job-seeker accounts separate.
+            const { data, error } = await supabaseClient.auth.signUp({
+                email: email,
+                password: password,
+                options: {
+                    data: {
+                        company_name: companyName,
+                        company_website: companyWebsite,
+                        role: "employer"
+                    },
+                    emailRedirectTo: "{{ url_for('auth.emlogin', _external=True) }}"
+                }
+            });
+
+            if (error) {
+                console.error("Employer registration error:", error);
+
+                alert(error.message);
+
+                submitButton.disabled = false;
+                submitButton.textContent = "Create Employer Account";
+
+                return;
+            }
+
+            console.log("Employer registration successful:", data);
+
+            alert("Employer account created successfully!");
+
+            window.location.href = "{{ url_for('auth.emlogin') }}";
+
+        } catch (error) {
+            console.error("Unexpected error while registering employer.", error);
+
+            alert("Something went wrong. Please try again.");
+
+            submitButton.disabled = false;
+            submitButton.textContent = "Create Employer Account";
+        }
+    });
+
+</script>
+
+{% endblock %}
