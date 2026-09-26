@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{% block title %}NEXORA{% endblock %}</title>
+    <title>{% block title %}NEXORA - Place to Find a Job{% endblock %}</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}">
@@ -72,7 +72,7 @@
                         aria-hidden="true">
 
                         <!-- Empty for now; content can be added later -->
-                        <a href="#" class="nexora-dropdown-item" role="menuitem">
+                        <a href="{{ url_for('auth.employerplans') }}" class="nexora-dropdown-item" role="menuitem">
                             <span>Employer Plans</span>
                         </a>
 
@@ -114,7 +114,7 @@
                         role="menu"
                         aria-hidden="true">
 
-                        <a href="#" class="nexora-dropdown-item" role="menuitem">Employer Plans</a>
+                        <a href="{{ url_for('auth.employerplans')}}" class="nexora-dropdown-item" role="menuitem">Employer Plans</a>
                         <a href="{{ url_for('auth.emlogin') }}" class="nexora-dropdown-item" role="menuitem">Employer Login</a>
                         <a href="{{ url_for('auth.emregister') }}" class="nexora-dropdown-item" role="menuitem">Employer Register</a>
 

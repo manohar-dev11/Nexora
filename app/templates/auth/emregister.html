@@ -1,17 +1,16 @@
 {% extends "base.html" %}
 
+{% block title %}Employer Register — NEXORA{% endblock %}
+
 {% block content %}
 
-
 <div class="employer-register-page">
-
 
     <!-- ==============================
          TOP NAVBAR
     =============================== -->
 
     <header class="auth-navbar">
-
 
         <div class="nav-logo">
 
@@ -20,69 +19,16 @@
             </div>
 
             <div>
-
-                <strong>
-                    NEXORA
-                </strong>
+                <strong>NEXORA</strong>
 
                 <span>
                     Your Career Starts Here
                 </span>
-
             </div>
 
         </div>
 
-
-        <nav>
-
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="#">
-                Jobs
-            </a>
-
-            <a href="#">
-                About
-            </a>
-
-            <a href="#">
-                Contact
-            </a>
-
-        </nav>
-
-
-        <div class="nav-buttons">
-
-            <a href="login.html"
-               class="nav-login">
-
-                Login
-
-            </a>
-
-            <a href="register.html"
-               class="nav-register">
-
-                Register
-
-            </a>
-
-            <a href="employer-login.html"
-               class="nav-employer">
-
-                For Employers ▾
-
-            </a>
-
-        </div>
-
-
     </header>
-
 
 
     <!-- ==============================
@@ -92,12 +38,18 @@
     <main class="employer-main">
 
 
-        <!-- STEPS -->
+        <!-- ==============================
+             LEFT STEP SIDEBAR
+        =============================== -->
 
         <aside class="steps-panel">
 
 
-            <div class="step active">
+            <!-- STEP 1 -->
+
+            <div
+                class="step active"
+                data-step="1">
 
                 <div class="step-number">
                     1
@@ -110,7 +62,11 @@
             </div>
 
 
-            <div class="step">
+            <!-- STEP 2 -->
+
+            <div
+                class="step"
+                data-step="2">
 
                 <div class="step-number">
                     2
@@ -123,7 +79,11 @@
             </div>
 
 
-            <div class="step">
+            <!-- STEP 3 -->
+
+            <div
+                class="step"
+                data-step="3">
 
                 <div class="step-number">
                     3
@@ -136,7 +96,11 @@
             </div>
 
 
-            <div class="step">
+            <!-- STEP 4 -->
+
+            <div
+                class="step"
+                data-step="4">
 
                 <div class="step-number">
                     4
@@ -149,7 +113,11 @@
             </div>
 
 
-            <div class="step">
+            <!-- STEP 5 -->
+
+            <div
+                class="step"
+                data-step="5">
 
                 <div class="step-number">
                     5
@@ -161,18 +129,20 @@
 
             </div>
 
-
         </aside>
 
 
 
-        <!-- FORM -->
+        <!-- ==============================
+             FORM AREA
+        =============================== -->
 
         <section class="employer-form-area">
 
-
             <div class="employer-form-card">
 
+
+                <!-- FORM HEADING -->
 
                 <div class="form-heading">
 
@@ -192,136 +162,136 @@
 
 
 
-                <form id="employerRegisterForm">
+                <!-- ==============================
+                     MAIN FORM
+
+                     novalidate is intentional.
+                     Validation is handled step-by-step
+                     using JavaScript.
+                =============================== -->
+
+                <form
+                    id="employerRegisterForm"
+                    novalidate>
 
 
-                    <!-- COMPANY NAME + WEBSITE -->
+                    <!-- ==================================================
+                         STEP 1
+                         COMPANY DETAILS
+                    =================================================== -->
 
-                    <div class="register-row">
+                    <div
+                        class="form-step active"
+                        data-step="1">
 
 
-                        <div class="input-group">
+                        <div class="step-form-heading">
 
-                            <label>
-                                Company Name <span>*</span>
-                            </label>
+                            <div class="step-form-badge">
+                                STEP 1
+                            </div>
 
-                            <div class="input-wrapper">
+                            <h3>
+                                Company Details
+                            </h3>
 
-                                <span class="input-icon">
-                                    🏢
-                                </span>
+                            <p>
+                                Tell us about your company.
+                            </p>
 
-                                <input
-                                    type="text"
-                                    id="companyName"
-                                    placeholder="Enter your company name"
-                                    required>
+                        </div>
+
+
+                        <!-- COMPANY NAME + WEBSITE -->
+
+                        <div class="register-row">
+
+
+                            <!-- COMPANY NAME -->
+
+                            <div class="input-group">
+
+                                <label>
+                                    Company Name
+                                    <span>*</span>
+                                </label>
+
+                                <div class="input-wrapper">
+
+                                    <span class="input-icon">
+                                        🏢
+                                    </span>
+
+                                    <input
+                                        type="text"
+                                        id="companyName"
+                                        placeholder="Enter your company name">
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- COMPANY WEBSITE -->
+
+                            <div class="input-group">
+
+                                <label>
+                                    Company Website
+                                </label>
+
+                                <div class="input-wrapper">
+
+                                    <span class="input-icon">
+                                        🌐
+                                    </span>
+
+                                    <input
+                                        type="url"
+                                        id="companyWebsite"
+                                        placeholder="https://www.yourcompany.com">
+
+                                </div>
 
                             </div>
 
                         </div>
 
 
+
+                        <!-- COMPANY EMAIL -->
+
                         <div class="input-group">
 
                             <label>
-                                Company Website
+                                Company Email
+                                <span>*</span>
                             </label>
 
                             <div class="input-wrapper">
 
                                 <span class="input-icon">
-                                    🌐
+                                    ✉
                                 </span>
 
                                 <input
-                                    type="url"
-                                    id="companyWebsite"
-                                    placeholder="https://www.yourcompany.com">
+                                    type="email"
+                                    id="companyEmail"
+                                    placeholder="Enter official company email">
 
                             </div>
 
                         </div>
 
 
-                    </div>
 
-
-
-                    <!-- EMAIL -->
-
-                    <div class="input-group">
-
-                        <label>
-                            Company Email <span>*</span>
-                        </label>
-
-                        <div class="input-wrapper">
-
-                            <span class="input-icon">
-                                ✉
-                            </span>
-
-                            <input
-                                type="email"
-                                id="companyEmail"
-                                placeholder="Enter official company email"
-                                required>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- PASSWORD -->
-
-                    <div class="input-group">
-
-                        <label>
-                            Password <span>*</span>
-                        </label>
-
-                        <div class="input-wrapper">
-
-                            <span class="input-icon">
-                                🔒
-                            </span>
-
-                            <input
-                                type="password"
-                                id="password"
-                                placeholder="Create a password"
-                                required>
-
-                            <button
-                                type="button"
-                                class="show-password">
-
-                                👁
-
-                            </button>
-
-                        </div>
-
-                        <small>
-                            At least 8 characters with letters, numbers and symbols.
-                        </small>
-
-                    </div>
-
-
-
-                    <!-- CONFIRM + LOGO -->
-
-                    <div class="register-row">
-
+                        <!-- PASSWORD -->
 
                         <div class="input-group">
 
                             <label>
-                                Confirm Password <span>*</span>
+                                Password
+                                <span>*</span>
                             </label>
 
                             <div class="input-wrapper">
@@ -332,100 +302,743 @@
 
                                 <input
                                     type="password"
-                                    id="confirmPassword"
-                                    placeholder="Confirm your password"
-                                    required>
+                                    id="password"
+                                    placeholder="Create a password">
+
+                                <button
+                                    type="button"
+                                    class="show-password"
+                                    id="showPassword">
+                                    👁
+                                </button>
+
+                            </div>
+
+                            <small>
+                                At least 8 characters with letters, numbers and symbols.
+                            </small>
+
+                        </div>
+
+
+
+                        <!-- CONFIRM PASSWORD + LOGO -->
+
+                        <div class="register-row">
+
+
+                            <!-- CONFIRM PASSWORD -->
+
+                            <div class="input-group">
+
+                                <label>
+                                    Confirm Password
+                                    <span>*</span>
+                                </label>
+
+                                <div class="input-wrapper">
+
+                                    <span class="input-icon">
+                                        🔒
+                                    </span>
+
+                                    <input
+                                        type="password"
+                                        id="confirmPassword"
+                                        placeholder="Confirm your password">
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- COMPANY LOGO -->
+
+                            <div class="input-group">
+
+                                <label>
+                                    Company Logo
+                                    <small>(Optional)</small>
+                                </label>
+
+                                <label class="upload-box">
+
+                                    <span class="upload-icon">
+                                        ☁
+                                    </span>
+
+                                    <strong>
+                                        Click to upload
+                                    </strong>
+
+                                    <small>
+                                        JPG, PNG (Max 2MB)
+                                    </small>
+
+                                    <input
+                                        type="file"
+                                        id="companyLogo"
+                                        accept=".jpg,.jpeg,.png">
+
+                                </label>
 
                             </div>
 
                         </div>
 
 
-                        <div class="input-group">
 
-                            <label>
-                                Company Logo
-                                <small>(Optional)</small>
-                            </label>
+                        <!-- NEXT -->
 
-                            <label class="upload-box">
+                        <div class="step-buttons">
 
-                                <span class="upload-icon">
-                                    ☁
-                                </span>
-
-                                <strong>
-                                    Click to upload
-                                </strong>
-
-                                <small>
-                                    JPG, PNG (Max 2MB)
-                                </small>
-
-                                <input
-                                    type="file"
-                                    accept=".jpg,.jpeg,.png">
-
-                            </label>
+                            <button
+                                type="button"
+                                class="login-button next-btn">
+                                Continue
+                            </button>
 
                         </div>
-
 
                     </div>
 
 
 
-                    <!-- TERMS -->
+                    <!-- ==================================================
+                         STEP 2
+                         CONTACT INFORMATION
+                    =================================================== -->
 
-                    <label class="checkbox-row">
-
-                        <input
-                            type="checkbox"
-                            id="agreeTerms"
-                            required>
-
-                        <span>
-
-                            I agree to the
-
-                            <a href="#">
-                                Terms & Conditions
-                            </a>
-
-                            and
-
-                            <a href="#">
-                                Privacy Policy
-                            </a>
-
-                        </span>
-
-                    </label>
+                    <div
+                        class="form-step"
+                        data-step="2">
 
 
+                        <div class="step-form-heading">
 
-                    <!-- NEXT -->
+                            <div class="step-form-badge">
+                                STEP 2
+                            </div>
 
-                    <button
-                        type="submit"
-                        class="login-button">
+                            <h3>
+                                Contact Information
+                            </h3>
 
-                        Create Employer Account
+                            <p>
+                                Provide the primary contact details for your company.
+                            </p>
 
-                    </button>
+                        </div>
+
+
+
+                        <!-- CONTACT PERSON + PHONE -->
+
+                        <div class="register-row">
+
+
+                            <!-- CONTACT PERSON -->
+
+                            <div class="input-group">
+
+                                <label>
+                                    Contact Person
+                                    <span>*</span>
+                                </label>
+
+                                <div class="input-wrapper">
+
+                                    <span class="input-icon">
+                                        👤
+                                    </span>
+
+                                    <input
+                                        type="text"
+                                        id="contactPerson"
+                                        placeholder="Enter full name">
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- PHONE -->
+
+                            <div class="input-group">
+
+                                <label>
+                                    Phone Number
+                                    <span>*</span>
+                                </label>
+
+                                <div class="input-wrapper">
+
+                                    <span class="input-icon">
+                                        📱
+                                    </span>
+
+                                    <input
+                                        type="tel"
+                                        id="contactPhone"
+                                        placeholder="Enter phone number">
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- CONTACT EMAIL -->
+
+                        <div class="input-group">
+
+                            <label>
+                                Contact Email
+                                <span>*</span>
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <span class="input-icon">
+                                    ✉
+                                </span>
+
+                                <input
+                                    type="email"
+                                    id="contactEmail"
+                                    placeholder="Enter contact email">
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- JOB TITLE -->
+
+                        <div class="input-group">
+
+                            <label>
+                                Contact Person Job Title
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <span class="input-icon">
+                                    💼
+                                </span>
+
+                                <input
+                                    type="text"
+                                    id="contactJobTitle"
+                                    placeholder="e.g. HR Manager">
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- BUTTONS -->
+
+                        <div class="step-buttons">
+
+                            <button
+                                type="button"
+                                class="back-btn">
+                                Back
+                            </button>
+
+                            <button
+                                type="button"
+                                class="login-button next-btn">
+                                Continue
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ==================================================
+                         STEP 3
+                         BUSINESS INFORMATION
+                    =================================================== -->
+
+                    <div
+                        class="form-step"
+                        data-step="3">
+
+
+                        <div class="step-form-heading">
+
+                            <div class="step-form-badge">
+                                STEP 3
+                            </div>
+
+                            <h3>
+                                Business Information
+                            </h3>
+
+                            <p>
+                                Tell us more about your business.
+                            </p>
+
+                        </div>
+
+
+
+                        <!-- INDUSTRY + COMPANY SIZE -->
+
+                        <div class="register-row">
+
+
+                            <!-- INDUSTRY -->
+
+                            <div class="input-group">
+
+                                <label>
+                                    Industry
+                                    <span>*</span>
+                                </label>
+
+                                <div class="input-wrapper">
+
+                                    <span class="input-icon">
+                                        🏢
+                                    </span>
+
+                                    <input
+                                        type="text"
+                                        id="industry"
+                                        placeholder="e.g. Information Technology">
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- COMPANY SIZE -->
+
+                            <div class="input-group">
+
+                                <label>
+                                    Company Size
+                                    <span>*</span>
+                                </label>
+
+                                <div class="input-wrapper">
+
+                                    <span class="input-icon">
+                                        👥
+                                    </span>
+
+                                    <select id="companySize">
+
+                                        <option value="">
+                                            Select company size
+                                        </option>
+
+                                        <option value="1-10">
+                                            1–10 employees
+                                        </option>
+
+                                        <option value="11-50">
+                                            11–50 employees
+                                        </option>
+
+                                        <option value="51-200">
+                                            51–200 employees
+                                        </option>
+
+                                        <option value="201-500">
+                                            201–500 employees
+                                        </option>
+
+                                        <option value="501-1000">
+                                            501–1000 employees
+                                        </option>
+
+                                        <option value="1000+">
+                                            1000+ employees
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- LOCATION -->
+
+                        <div class="input-group">
+
+                            <label>
+                                Company Location
+                                <span>*</span>
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <span class="input-icon">
+                                    📍
+                                </span>
+
+                                <input
+                                    type="text"
+                                    id="companyLocation"
+                                    placeholder="City, State">
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- COMPANY DESCRIPTION -->
+
+                        <div class="input-group">
+
+                            <label>
+                                Company Description
+                            </label>
+
+                            <textarea
+                                id="companyDescription"
+                                rows="5"
+                                placeholder="Tell us about your company..."></textarea>
+
+                        </div>
+
+
+
+                        <!-- BUTTONS -->
+
+                        <div class="step-buttons">
+
+                            <button
+                                type="button"
+                                class="back-btn">
+                                Back
+                            </button>
+
+                            <button
+                                type="button"
+                                class="login-button next-btn">
+                                Continue
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ==================================================
+                         STEP 4
+                         VERIFY EMAIL
+                    =================================================== -->
+
+                    <div
+                        class="form-step"
+                        data-step="4">
+
+
+                        <div class="step-form-heading">
+
+                            <div class="step-form-badge">
+                                STEP 4
+                            </div>
+
+                            <h3>
+                                Verify Email
+                            </h3>
+
+                            <p>
+                                Confirm the email address that will be used for your employer account.
+                            </p>
+
+                        </div>
+
+
+
+                        <!-- VERIFICATION BOX -->
+
+                        <div class="verification-box">
+
+                            <div class="verification-icon">
+                                ✉
+                            </div>
+
+                            <h3>
+                                Confirm your email address
+                            </h3>
+
+                            <p>
+                                A verification email will be sent to:
+                            </p>
+
+                            <strong id="verificationEmail">
+                                —
+                            </strong>
+
+                        </div>
+
+
+
+                        <div class="verification-note">
+
+                            <p>
+                                Make sure this is an official email address
+                                that you can access.
+                            </p>
+
+                        </div>
+
+
+
+                        <!-- BUTTONS -->
+
+                        <div class="step-buttons">
+
+                            <button
+                                type="button"
+                                class="back-btn">
+                                Back
+                            </button>
+
+                            <button
+                                type="button"
+                                class="login-button next-btn">
+                                Continue to Review
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ==================================================
+                         STEP 5
+                         REVIEW & REGISTER
+                    =================================================== -->
+
+                    <div
+                        class="form-step"
+                        data-step="5">
+
+
+                        <div class="step-form-heading">
+
+                            <div class="step-form-badge">
+                                STEP 5
+                            </div>
+
+                            <h3>
+                                Review & Register
+                            </h3>
+
+                            <p>
+                                Review your information before creating your account.
+                            </p>
+
+                        </div>
+
+
+
+                        <!-- REVIEW -->
+
+                        <div class="review-box">
+
+
+                            <div class="review-item">
+
+                                <span>
+                                    Company Name
+                                </span>
+
+                                <strong id="reviewCompanyName">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="review-item">
+
+                                <span>
+                                    Company Website
+                                </span>
+
+                                <strong id="reviewCompanyWebsite">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="review-item">
+
+                                <span>
+                                    Company Email
+                                </span>
+
+                                <strong id="reviewCompanyEmail">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="review-item">
+
+                                <span>
+                                    Contact Person
+                                </span>
+
+                                <strong id="reviewContactPerson">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="review-item">
+
+                                <span>
+                                    Phone Number
+                                </span>
+
+                                <strong id="reviewContactPhone">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="review-item">
+
+                                <span>
+                                    Industry
+                                </span>
+
+                                <strong id="reviewIndustry">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="review-item">
+
+                                <span>
+                                    Company Size
+                                </span>
+
+                                <strong id="reviewCompanySize">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="review-item">
+
+                                <span>
+                                    Location
+                                </span>
+
+                                <strong id="reviewCompanyLocation">
+                                    —
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- TERMS -->
+
+                        <label class="checkbox-row">
+
+                            <input
+                                type="checkbox"
+                                id="agreeTerms">
+
+                            <span>
+
+                                I agree to the
+
+                                <a href="#">
+                                    Terms & Conditions
+                                </a>
+
+                                and
+
+                                <a href="#">
+                                    Privacy Policy
+                                </a>
+
+                            </span>
+
+                        </label>
+
+
+
+                        <!-- BUTTONS -->
+
+                        <div class="step-buttons">
+
+                            <button
+                                type="button"
+                                class="back-btn">
+                                Back
+                            </button>
+
+                            <!-- IMPORTANT:
+                                 ONLY THIS BUTTON SUBMITS THE FORM -->
+
+                            <button
+                                type="submit"
+                                class="login-button"
+                                id="createEmployerAccount">
+
+                                Create Employer Account
+
+                            </button>
+
+                        </div>
+
+                    </div>
 
 
                 </form>
 
 
 
-                <!-- OR -->
+                <!-- ==============================
+                     OR
+                =============================== -->
 
                 <div class="divider">
 
                     <span></span>
 
-                    <p>OR</p>
+                    <p>
+                        OR
+                    </p>
 
                     <span></span>
 
@@ -433,7 +1046,9 @@
 
 
 
-                <!-- GOOGLE -->
+                <!-- ==============================
+                     GOOGLE
+                =============================== -->
 
                 <button
                     type="button"
@@ -451,11 +1066,15 @@
 
 
 
+                <!-- ==============================
+                     LOGIN
+                =============================== -->
+
                 <div class="register-text">
 
                     Already have an account?
 
-                    <a href="{{url_for('auth.emlogin')}}">
+                    <a href="{{ url_for('auth.emlogin') }}">
                         Login here
                     </a>
 
@@ -464,12 +1083,13 @@
 
             </div>
 
-
         </section>
 
 
 
-        <!-- RIGHT INFO -->
+        <!-- ==============================
+             RIGHT INFO
+        =============================== -->
 
         <aside class="employer-info">
 
@@ -490,9 +1110,12 @@
             </p>
 
 
+
             <div class="info-feature">
 
-                <div>👥</div>
+                <div>
+                    👥
+                </div>
 
                 <span>
                     Post job openings<br>
@@ -502,9 +1125,12 @@
             </div>
 
 
+
             <div class="info-feature">
 
-                <div>📄</div>
+                <div>
+                    📄
+                </div>
 
                 <span>
                     Review and manage<br>
@@ -514,9 +1140,12 @@
             </div>
 
 
+
             <div class="info-feature">
 
-                <div>🔍</div>
+                <div>
+                    🔍
+                </div>
 
                 <span>
                     Access verified talent
@@ -525,9 +1154,12 @@
             </div>
 
 
+
             <div class="info-feature">
 
-                <div>📊</div>
+                <div>
+                    📊
+                </div>
 
                 <span>
                     Grow your team faster
@@ -544,78 +1176,1008 @@
 
 </div>
 
+
+
+<!-- ==========================================================
+     JAVASCRIPT
+=========================================================== -->
+
 <script>
 
-    const employerRegisterForm = document.getElementById("employerRegisterForm");
+document.addEventListener("DOMContentLoaded", function () {
 
-    employerRegisterForm.addEventListener("submit", async function (event) {
-        event.preventDefault();
 
-        const companyName = document.getElementById("companyName").value.trim();
-        const companyWebsite = document.getElementById("companyWebsite").value.trim();
-        const email = document.getElementById("companyEmail").value.trim();
-        const password = document.getElementById("password").value;
-        const confirmPassword = document.getElementById("confirmPassword").value;
+    /* ==========================================================
+       ELEMENTS
+    =========================================================== */
 
-        const submitButton = employerRegisterForm.querySelector(
-            'button[type="submit"]'
-        );
+    const form =
+        document.getElementById("employerRegisterForm");
 
-        if (password !== confirmPassword) {
-            alert("Passwords do not match.");
-            return;
+    const steps =
+        document.querySelectorAll(".form-step");
+
+    const progressSteps =
+        document.querySelectorAll(".steps-panel .step");
+
+    let currentStep = 1;
+
+
+
+    /* ==========================================================
+       SHOW STEP
+    =========================================================== */
+
+    function showStep(stepNumber) {
+
+
+        /* Hide / show form sections */
+
+        steps.forEach(function (step) {
+
+            const stepValue =
+                Number(step.dataset.step);
+
+            step.classList.toggle(
+                "active",
+                stepValue === stepNumber
+            );
+
+        });
+
+
+
+        /* Update left sidebar */
+
+        progressSteps.forEach(function (step) {
+
+            const stepValue =
+                Number(step.dataset.step);
+
+            step.classList.toggle(
+                "active",
+                stepValue === stepNumber
+            );
+
+            step.classList.toggle(
+                "completed",
+                stepValue < stepNumber
+            );
+
+        });
+
+
+
+        currentStep = stepNumber;
+
+
+
+        /* Update verification email */
+
+        updateVerificationEmail();
+
+
+
+        /* Update review information */
+
+        updateReview();
+
+    }
+
+
+
+    /* ==========================================================
+       GET VALUE
+    =========================================================== */
+
+    function getValue(id) {
+
+        const element =
+            document.getElementById(id);
+
+        if (!element) {
+            return "";
         }
 
-        if (password.length < 8) {
-            alert("Password must be at least 8 characters.");
-            return;
-        }
+        return element.value.trim();
 
-        submitButton.disabled = true;
-        submitButton.textContent = "Creating Account...";
+    }
 
-        try {
-            // The "role" here is what the login pages check to keep
-            // employer and job-seeker accounts separate.
-            const { data, error } = await supabaseClient.auth.signUp({
-                email: email,
-                password: password,
-                options: {
-                    data: {
-                        company_name: companyName,
-                        company_website: companyWebsite,
-                        role: "employer"
-                    },
-                    emailRedirectTo: "{{ url_for('auth.emlogin', _external=True) }}"
-                }
-            });
 
-            if (error) {
-                console.error("Employer registration error:", error);
 
-                alert(error.message);
+    /* ==========================================================
+       VALIDATE CURRENT STEP
+    =========================================================== */
 
-                submitButton.disabled = false;
-                submitButton.textContent = "Create Employer Account";
+    function validateCurrentStep() {
 
-                return;
+
+        /* ============================================
+           STEP 1
+        ============================================ */
+
+        if (currentStep === 1) {
+
+
+            const companyName =
+                getValue("companyName");
+
+            const email =
+                getValue("companyEmail");
+
+            const password =
+                document.getElementById("password").value;
+
+            const confirmPassword =
+                document.getElementById("confirmPassword").value;
+
+
+            if (!companyName) {
+
+                alert(
+                    "Please enter your company name."
+                );
+
+                document.getElementById(
+                    "companyName"
+                ).focus();
+
+                return false;
+
             }
 
-            console.log("Employer registration successful:", data);
 
-            alert("Employer account created successfully!");
+            if (!email) {
 
-            window.location.href = "{{ url_for('auth.emlogin') }}";
+                alert(
+                    "Please enter your company email."
+                );
 
-        } catch (error) {
-            console.error("Unexpected error while registering employer.", error);
+                document.getElementById(
+                    "companyEmail"
+                ).focus();
 
-            alert("Something went wrong. Please try again.");
+                return false;
 
-            submitButton.disabled = false;
-            submitButton.textContent = "Create Employer Account";
+            }
+
+
+            const emailInput =
+                document.getElementById("companyEmail");
+
+            if (!emailInput.checkValidity()) {
+
+                alert(
+                    "Please enter a valid company email."
+                );
+
+                emailInput.focus();
+
+                return false;
+
+            }
+
+
+            if (!password) {
+
+                alert(
+                    "Please create a password."
+                );
+
+                document.getElementById(
+                    "password"
+                ).focus();
+
+                return false;
+
+            }
+
+
+            if (password.length < 8) {
+
+                alert(
+                    "Password must be at least 8 characters."
+                );
+
+                document.getElementById(
+                    "password"
+                ).focus();
+
+                return false;
+
+            }
+
+
+            if (password !== confirmPassword) {
+
+                alert(
+                    "Passwords do not match."
+                );
+
+                document.getElementById(
+                    "confirmPassword"
+                ).focus();
+
+                return false;
+
+            }
+
+
+            return true;
+
         }
-    });
+
+
+
+        /* ============================================
+           STEP 2
+        ============================================ */
+
+        if (currentStep === 2) {
+
+
+            const contactPerson =
+                getValue("contactPerson");
+
+            const contactPhone =
+                getValue("contactPhone");
+
+            const contactEmail =
+                getValue("contactEmail");
+
+
+            if (!contactPerson) {
+
+                alert(
+                    "Please enter the contact person's name."
+                );
+
+                document.getElementById(
+                    "contactPerson"
+                ).focus();
+
+                return false;
+
+            }
+
+
+            if (!contactPhone) {
+
+                alert(
+                    "Please enter a phone number."
+                );
+
+                document.getElementById(
+                    "contactPhone"
+                ).focus();
+
+                return false;
+
+            }
+
+
+            if (!contactEmail) {
+
+                alert(
+                    "Please enter a contact email."
+                );
+
+                document.getElementById(
+                    "contactEmail"
+                ).focus();
+
+                return false;
+
+            }
+
+
+            const contactEmailInput =
+                document.getElementById("contactEmail");
+
+            if (!contactEmailInput.checkValidity()) {
+
+                alert(
+                    "Please enter a valid contact email."
+                );
+
+                contactEmailInput.focus();
+
+                return false;
+
+            }
+
+
+            return true;
+
+        }
+
+
+
+        /* ============================================
+           STEP 3
+        ============================================ */
+
+        if (currentStep === 3) {
+
+
+            const industry =
+                getValue("industry");
+
+            const companySize =
+                document.getElementById(
+                    "companySize"
+                ).value;
+
+            const location =
+                getValue("companyLocation");
+
+
+            if (!industry) {
+
+                alert(
+                    "Please enter your industry."
+                );
+
+                document.getElementById(
+                    "industry"
+                ).focus();
+
+                return false;
+
+            }
+
+
+            if (!companySize) {
+
+                alert(
+                    "Please select your company size."
+                );
+
+                document.getElementById(
+                    "companySize"
+                ).focus();
+
+                return false;
+
+            }
+
+
+            if (!location) {
+
+                alert(
+                    "Please enter your company location."
+                );
+
+                document.getElementById(
+                    "companyLocation"
+                ).focus();
+
+                return false;
+
+            }
+
+
+            return true;
+
+        }
+
+
+
+        /* ============================================
+           STEP 4
+        ============================================ */
+
+        if (currentStep === 4) {
+
+            const email =
+                getValue("companyEmail");
+
+            if (!email) {
+
+                alert(
+                    "Please enter your company email first."
+                );
+
+                return false;
+
+            }
+
+            return true;
+
+        }
+
+
+
+        /* ============================================
+           STEP 5
+        ============================================ */
+
+        if (currentStep === 5) {
+
+            const terms =
+                document.getElementById(
+                    "agreeTerms"
+                );
+
+            if (!terms.checked) {
+
+                alert(
+                    "Please agree to the Terms & Conditions and Privacy Policy."
+                );
+
+                return false;
+
+            }
+
+            return true;
+
+        }
+
+
+        return true;
+
+    }
+
+
+
+    /* ==========================================================
+       NEXT BUTTONS
+    =========================================================== */
+
+    document
+        .querySelectorAll(".next-btn")
+        .forEach(function (button) {
+
+
+            button.addEventListener(
+                "click",
+                function () {
+
+
+                    /* Validate current step first */
+
+                    if (!validateCurrentStep()) {
+                        return;
+                    }
+
+
+                    /* Move forward */
+
+                    if (currentStep < 5) {
+
+                        showStep(
+                            currentStep + 1
+                        );
+
+                    }
+
+                }
+            );
+
+        });
+
+
+
+    /* ==========================================================
+       BACK BUTTONS
+    =========================================================== */
+
+    document
+        .querySelectorAll(".back-btn")
+        .forEach(function (button) {
+
+
+            button.addEventListener(
+                "click",
+                function () {
+
+
+                    if (currentStep > 1) {
+
+                        showStep(
+                            currentStep - 1
+                        );
+
+                    }
+
+                }
+            );
+
+        });
+
+
+
+    /* ==========================================================
+       UPDATE VERIFICATION EMAIL
+    =========================================================== */
+
+    function updateVerificationEmail() {
+
+
+        const email =
+            getValue("companyEmail");
+
+        const verificationEmail =
+            document.getElementById(
+                "verificationEmail"
+            );
+
+
+        if (verificationEmail) {
+
+            verificationEmail.textContent =
+                email || "your company email";
+
+        }
+
+    }
+
+
+
+    /* ==========================================================
+       UPDATE REVIEW
+    =========================================================== */
+
+    function updateReview() {
+
+
+        const reviewValues = {
+
+
+            reviewCompanyName:
+                getValue("companyName") || "—",
+
+
+            reviewCompanyWebsite:
+                getValue("companyWebsite") || "—",
+
+
+            reviewCompanyEmail:
+                getValue("companyEmail") || "—",
+
+
+            reviewContactPerson:
+                getValue("contactPerson") || "—",
+
+
+            reviewContactPhone:
+                getValue("contactPhone") || "—",
+
+
+            reviewIndustry:
+                getValue("industry") || "—",
+
+
+            reviewCompanySize:
+                document.getElementById(
+                    "companySize"
+                )?.value || "—",
+
+
+            reviewCompanyLocation:
+                getValue("companyLocation") || "—"
+
+        };
+
+
+
+        Object.entries(reviewValues)
+            .forEach(function ([id, value]) {
+
+
+                const element =
+                    document.getElementById(id);
+
+
+                if (element) {
+
+                    element.textContent =
+                        value;
+
+                }
+
+            });
+
+    }
+
+
+
+    /* ==========================================================
+       PASSWORD SHOW / HIDE
+    =========================================================== */
+
+    const showPasswordButton =
+        document.getElementById(
+            "showPassword"
+        );
+
+    const passwordInput =
+        document.getElementById(
+            "password"
+        );
+
+
+    if (
+        showPasswordButton &&
+        passwordInput
+    ) {
+
+
+        showPasswordButton.addEventListener(
+            "click",
+            function () {
+
+
+                if (
+                    passwordInput.type ===
+                    "password"
+                ) {
+
+                    passwordInput.type =
+                        "text";
+
+                    showPasswordButton.textContent =
+                        "🙈";
+
+                } else {
+
+                    passwordInput.type =
+                        "password";
+
+                    showPasswordButton.textContent =
+                        "👁";
+
+                }
+
+            }
+        );
+
+    }
+
+
+
+    /* ==========================================================
+       FILE VALIDATION
+    =========================================================== */
+
+    const logoInput =
+        document.getElementById(
+            "companyLogo"
+        );
+
+
+    if (logoInput) {
+
+
+        logoInput.addEventListener(
+            "change",
+            function () {
+
+
+                const file =
+                    this.files[0];
+
+
+                if (!file) {
+                    return;
+                }
+
+
+                /* 2MB limit */
+
+                const maxSize =
+                    2 * 1024 * 1024;
+
+
+                if (file.size > maxSize) {
+
+                    alert(
+                        "Company logo must be smaller than 2MB."
+                    );
+
+                    this.value = "";
+
+                    return;
+
+                }
+
+
+                /* Allowed types */
+
+                const allowedTypes = [
+                    "image/jpeg",
+                    "image/png"
+                ];
+
+
+                if (
+                    !allowedTypes.includes(
+                        file.type
+                    )
+                ) {
+
+                    alert(
+                        "Please upload a JPG or PNG image."
+                    );
+
+                    this.value = "";
+
+                    return;
+
+                }
+
+            }
+        );
+
+    }
+
+
+
+    /* ==========================================================
+       FINAL FORM SUBMISSION
+       
+       IMPORTANT:
+       This is the ONLY place where
+       Supabase signUp() is called.
+    =========================================================== */
+
+    form.addEventListener(
+        "submit",
+        async function (event) {
+
+
+            event.preventDefault();
+
+
+
+            /* Prevent direct submission
+               from any other step */
+
+            if (currentStep !== 5) {
+
+                return;
+
+            }
+
+
+
+            /* Validate Step 5 */
+
+            if (!validateCurrentStep()) {
+
+                return;
+
+            }
+
+
+
+            /* ============================================
+               GET ALL DATA
+            ============================================ */
+
+            const companyName =
+                getValue("companyName");
+
+
+            const companyWebsite =
+                getValue("companyWebsite");
+
+
+            const email =
+                getValue("companyEmail");
+
+
+            const password =
+                document.getElementById(
+                    "password"
+                ).value;
+
+
+            const contactPerson =
+                getValue("contactPerson");
+
+
+            const contactPhone =
+                getValue("contactPhone");
+
+
+            const contactEmail =
+                getValue("contactEmail");
+
+
+            const contactJobTitle =
+                getValue("contactJobTitle");
+
+
+            const industry =
+                getValue("industry");
+
+
+            const companySize =
+                document.getElementById(
+                    "companySize"
+                ).value;
+
+
+            const companyLocation =
+                getValue("companyLocation");
+
+
+            const companyDescription =
+                getValue("companyDescription");
+
+
+
+            /* ============================================
+               SUBMIT BUTTON
+            ============================================ */
+
+            const submitButton =
+                document.getElementById(
+                    "createEmployerAccount"
+                );
+
+
+            submitButton.disabled = true;
+
+
+            submitButton.textContent =
+                "Creating Account...";
+
+
+
+            /* ============================================
+               SUPABASE SIGNUP
+            ============================================ */
+
+            try {
+
+
+                const {
+                    data,
+                    error
+                } =
+                    await supabaseClient.auth.signUp({
+
+                        email: email,
+
+                        password: password,
+
+                        options: {
+
+                            data: {
+
+                                company_name:
+                                    companyName,
+
+                                company_website:
+                                    companyWebsite,
+
+                                role:
+                                    "employer",
+
+                                contact_person:
+                                    contactPerson,
+
+                                contact_phone:
+                                    contactPhone,
+
+                                contact_email:
+                                    contactEmail,
+
+                                contact_job_title:
+                                    contactJobTitle,
+
+                                industry:
+                                    industry,
+
+                                company_size:
+                                    companySize,
+
+                                company_location:
+                                    companyLocation,
+
+                                company_description:
+                                    companyDescription
+
+                            },
+
+
+                            emailRedirectTo:
+                                "{{ url_for('auth.emlogin', _external=True) }}"
+
+                        }
+
+                    });
+
+
+
+                /* ========================================
+                   SUPABASE ERROR
+                ========================================= */
+
+                if (error) {
+
+
+                    console.error(
+                        "Employer registration error:",
+                        error
+                    );
+
+
+                    alert(
+                        error.message
+                    );
+
+
+                    submitButton.disabled =
+                        false;
+
+
+                    submitButton.textContent =
+                        "Create Employer Account";
+
+
+                    return;
+
+                }
+
+
+
+                /* ========================================
+                   SUCCESS
+                ========================================= */
+
+                console.log(
+                    "Employer registration successful:",
+                    data
+                );
+
+
+                alert(
+                    "Employer account created successfully! Please check your email for verification."
+                );
+
+
+                window.location.href =
+                    "{{ url_for('auth.emlogin') }}";
+
+
+            } catch (error) {
+
+
+                console.error(
+                    "Unexpected error while registering employer:",
+                    error
+                );
+
+
+                alert(
+                    "Something went wrong. Please try again."
+                );
+
+
+                submitButton.disabled =
+                    false;
+
+
+                submitButton.textContent =
+                    "Create Employer Account";
+
+            }
+
+        }
+    );
+
+
+
+    /* ==========================================================
+       START AT STEP 1
+    =========================================================== */
+
+    showStep(1);
+
+});
 
 </script>
 

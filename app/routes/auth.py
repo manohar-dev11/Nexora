@@ -55,3 +55,8 @@ def employerdashboard():
         total_views=0,
         shortlisted=0,
     )
+    
+
+@auth_bp.get("/plans")
+def employerplans():
+    return render_template("auth/employer_plans.html")

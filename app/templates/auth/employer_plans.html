@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block title %}Employer Plans — NEXORA{% endblock %}
+
+{% block head %}
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/plan_style.css') }}"
+>
+{% endblock %}
+
+{% block content %}
+
+<div class="plans-page">
+
+    <div class="plans-hero">
+        <span class="plans-badge">
+            <i data-lucide="briefcase" style="width:13px;height:13px;"></i>
+            FOR EMPLOYERS
+        </span>
+
+        <h1>Simple, transparent hiring plans</h1>
+
+        <p>
+            Post jobs and reach Australian talent — pick the plan
+            that fits how you hire. No lock-in contracts, no hidden fees.
+        </p>
+    </div>
+
+    <div class="plans-grid">
+
+        <!-- BASIC -->
+        <div class="plan-card">
+            <p class="plan-name">Basic</p>
+            <p class="plan-tagline">Try NEXORA with your first listing</p>
+
+            <div class="plan-price">
+                <span class="amount">$0</span>
+            </div>
+            <p class="plan-duration">Free for 21 days</p>
+
+            <ul class="plan-features">
+                <li><i data-lucide="check"></i> 1 active job listing</li>
+                <li><i data-lucide="check"></i> Standard search placement</li>
+                <li><i data-lucide="check"></i> Basic company profile</li>
+                <li><i data-lucide="check"></i> Email applicant notifications</li>
+                <li><i data-lucide="check"></i> 21-day listing duration</li>
+            </ul>
+
+            <a href="{{ url_for('auth.emregister') }}" class="plan-cta outline">
+                Get Started Free
+            </a>
+        </div>
+
+        <!-- FEATURED -->
+        <div class="plan-card featured">
+            <span class="plan-ribbon">MOST POPULAR</span>
+
+            <p class="plan-name">Featured</p>
+            <p class="plan-tagline">Get noticed by more candidates</p>
+
+            <div class="plan-price">
+                <span class="amount">$29</span>
+                <span class="period">/ listing</span>
+            </div>
+            <p class="plan-duration">Runs for 7 days</p>
+
+            <ul class="plan-features">
+                <li><i data-lucide="check"></i> Everything in Basic</li>
+                <li><i data-lucide="check"></i> "Featured" badge on your listing</li>
+                <li><i data-lucide="check"></i> Higher placement in search results</li>
+                <li><i data-lucide="check"></i> Boosted visibility in category pages</li>
+                <li><i data-lucide="check"></i> 7-day active listing</li>
+            </ul>
+
+            <a href="{{ url_for('auth.emregister') }}" class="plan-cta primary">
+                Choose Featured
+            </a>
+        </div>
+
+        <!-- PREMIUM -->
+        <div class="plan-card">
+            <p class="plan-name">Premium</p>
+            <p class="plan-tagline">Maximum visibility, fastest results</p>
+
+            <div class="plan-price">
+                <span class="amount">$59</span>
+                <span class="period">/ listing</span>
+            </div>
+            <p class="plan-duration">Runs for 7 days</p>
+
+            <ul class="plan-features">
+                <li><i data-lucide="check"></i> Everything in Featured</li>
+                <li><i data-lucide="check"></i> Top-of-page placement</li>
+                <li><i data-lucide="check"></i> Homepage spotlight slot</li>
+                <li><i data-lucide="check"></i> Highlighted card styling</li>
+                <li><i data-lucide="check"></i> Priority support</li>
+            </ul>
+
+            <a href="{{ url_for('auth.emregister') }}" class="plan-cta outline">
+                Choose Premium
+            </a>
+        </div>
+
+    </div>
+
+    <p class="plans-footnote">
+        We're launching with these 3 plans while we learn how employers
+        use NEXORA — more tiers and add-ons (like multi-job bundles)
+        may be introduced later based on feedback.
+    </p>
+
+</div>
+
+{% endblock %}
